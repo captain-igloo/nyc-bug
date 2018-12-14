@@ -1,0 +1,27 @@
+{
+  "name": "nyc-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test1": "nyc ts-node node_modules/tape/bin/tape ./test/foo1.ts",
+    "test2": "mv src/Foo1.ts src/Foo2.ts && nyc ts-node node_modules/tape/bin/tape ./test/foo2.ts",
+    "reset": "mv src/Foo2.ts src/Foo1.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nyc": "^13.1.0",
+    "tape": "^4.9.1",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  },
+  "nyc": {
+    "reporter": [
+      "html"
+    ],
+    "extension": [
+      ".ts"
+    ]
+  }
+}
